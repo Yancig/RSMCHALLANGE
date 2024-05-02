@@ -1,6 +1,6 @@
-@RSMCHALLANGE.API_HostAddress = http://localhost:5032
+@RSMCHALLANGE.Api_HostAddress = http://localhost:5075
 
-GET {{RSMCHALLANGE.API_HostAddress}}/weatherforecast/
+GET {{RSMCHALLANGE.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
