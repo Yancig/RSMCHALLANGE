@@ -25,9 +25,26 @@ namespace RSMCHALLANGE.Infrastructure.Repository
                 .AsNoTracking()
                 .Take(15)
                 .ToListAsync();
+
+        }
+        public async Task<List<vTotalofSalesByRegion>> GetTheTopSalesProducts()
+        {
+            var productSalesReport = await _advWorksDbContext.Set<vTotalofSalesByRegion>()
+                .AsNoTracking()
+                .GroupBy(x => new { x.Product, x.Category })
+                .Select(g => new vTotalofSalesByRegion
+                {
+                    Product = g.Key.Product,
+                    Category = g.Key.Category,
+                    TotalSales = g.Sum(x => x.TotalSales)
+                })
+                .OrderByDescending(x => x.TotalSales)
+                .Take(15)
+                .ToListAsync();
+
+            return productSalesReport;
         }
 
-        
 
     }
 }

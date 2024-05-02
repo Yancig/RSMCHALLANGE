@@ -42,6 +42,25 @@ namespace RSMCHALLANGE.Application.Service
             return getAllTotalofSalesByRegionDTOs;
         }
 
+        public async Task<IEnumerable<TheTopSalesProductDTOs>> GetTopProduct()
+        {
+            var salesReportByRegion = await _totalofSalesByRegionRepository.GetTheTopSalesProducts();
 
+            List<TheTopSalesProductDTOs> theTopSalesProductDTs = [];
+
+            foreach (var report in salesReportByRegion)
+            {
+                TheTopSalesProductDTOs getAllTotalofSalesByRegionDT = new TheTopSalesProductDTOs()
+                {
+                    Product = report.Product,
+                    Category = report.Category,
+                    TotalSales = report.TotalSales,
+                };
+
+                theTopSalesProductDTs.Add(getAllTotalofSalesByRegionDT);
+            }
+            return theTopSalesProductDTs;
+        
+        }
     }
 }

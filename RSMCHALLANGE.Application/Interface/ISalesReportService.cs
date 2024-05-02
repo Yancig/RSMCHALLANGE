@@ -11,5 +11,6 @@ namespace RSMCHALLANGE.Application.Interface
     {
         Task<IEnumerable<GetAllSalesReportDTOs>> GetAllSalesReport();
 
+
     }
 }
