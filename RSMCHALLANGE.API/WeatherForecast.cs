@@ -1,4 +1,4 @@
-namespace RSMCHALLANGE.API
+namespace RSMCHALLANGE.Api
 {
     public class WeatherForecast
     {
