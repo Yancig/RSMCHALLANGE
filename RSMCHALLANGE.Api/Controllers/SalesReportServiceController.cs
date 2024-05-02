@@ -32,22 +32,5 @@ namespace RSMCHALLANGE.Api.Controllers
             return "value";
         }
 
-        // POST api/<SalesReportServiceController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<SalesReportServiceController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<SalesReportServiceController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

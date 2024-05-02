@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RSMCHALLANGE.Infrastructure.Interface
 {
-    public interface ISalesReportRepository
+    public interface ITotalofSalesByRegionRepository
     {
-        Task<IEnumerable<vSalesReport>> GetSalesReport();
+        Task<IEnumerable<vTotalofSalesByRegion>> GetSalesByRegionReport();
 
     }
 }
