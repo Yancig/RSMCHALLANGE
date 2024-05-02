@@ -10,6 +10,7 @@ namespace RSMCHALLANGE.Infrastructure.Interface
     public interface ITotalofSalesByRegionRepository
     {
         Task<IEnumerable<vTotalofSalesByRegion>> GetSalesByRegionReport();
+        Task<List<vTotalofSalesByRegion>> GetTheTopSalesProducts();
 
     }
 }

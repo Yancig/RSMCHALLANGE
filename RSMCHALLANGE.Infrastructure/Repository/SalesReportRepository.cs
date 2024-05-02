@@ -25,6 +25,8 @@ namespace RSMCHALLANGE.Infrastructure.Repository
                 .AsNoTracking()
                 .Take(15)
                 .ToListAsync();
+
+
         }
     }
 }

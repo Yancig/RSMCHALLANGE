@@ -10,5 +10,6 @@ namespace RSMCHALLANGE.Application.Interface
     public interface ITotalofSalesByRegionService
     {
         Task<IEnumerable<GetAllTotalofSalesByRegionDTOs>> RetrieveSalesByRegionReport();
+        Task<IEnumerable<TheTopSalesProductDTOs>> GetTopProduct();
     }
 }

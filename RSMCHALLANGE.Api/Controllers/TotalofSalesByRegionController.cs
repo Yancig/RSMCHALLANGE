@@ -20,6 +20,11 @@ namespace RSMCHALLANGE.Api.Controllers
         {
             return Ok(await _totalofSalesByRegionService.RetrieveSalesByRegionReport());
         }
+        [HttpGet("GetTopSalesProduct")]
+        public async Task<IActionResult> GetTopSalesProduct()
+        {
+            return Ok(await _totalofSalesByRegionService.GetTopProduct());
+        }
 
         // GET api/<TotalofSalesByRegionController>/5
         [HttpGet("{id}")]
