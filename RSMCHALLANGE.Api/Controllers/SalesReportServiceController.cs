@@ -19,18 +19,13 @@ namespace RSMCHALLANGE.Api.Controllers
 
 
         // GET: api/<SalesReportServiceController>
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<IActionResult> Get()
         {
             return Ok(await _salesReportService.GetAllSalesReport());
         }
 
-        // GET api/<SalesReportServiceController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+       
 
     }
 }

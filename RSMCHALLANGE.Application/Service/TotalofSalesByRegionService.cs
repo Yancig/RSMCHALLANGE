@@ -29,8 +29,6 @@ namespace RSMCHALLANGE.Application.Service
             {
                 GetAllTotalofSalesByRegionDTOs getAllTotalofSalesByRegionDT = new GetAllTotalofSalesByRegionDTOs()
                 {
-
-
                     Product = report.Product,
                     Category = report.Category,
                     TotalSales = report.TotalSales,
