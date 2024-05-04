@@ -15,8 +15,8 @@ namespace RSMCHALLANGE.Api.Controllers
             _totalofSalesByRegionService = totalofSalesByRegionService;
         }
         // GET: api/<TotalofSalesByRegionController>
-        [HttpGet]
-        public async Task <IActionResult> Get()
+        [HttpGet("SalesByRegion")]
+        public async Task <IActionResult> SalesByRegion()
         {
             return Ok(await _totalofSalesByRegionService.RetrieveSalesByRegionReport());
         }

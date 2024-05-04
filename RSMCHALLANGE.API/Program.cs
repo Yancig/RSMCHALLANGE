@@ -27,6 +27,17 @@ builder.Services.AddTransient<ISalesReportService, SalesReportService>();
 builder.Services.AddTransient<ITotalofSalesByRegionService, TotalofSalesByRegionService>();
 builder.Services.AddTransient<ITotalofSalesByRegionRepository, TotalofSalesByRegionRepository>();
 
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,7 +48,7 @@ if(app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
