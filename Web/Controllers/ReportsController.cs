@@ -77,6 +77,37 @@ namespace Web.Controllers
                 }
             }
 
+        public async Task<IActionResult> TopSales()
+        {
+            try
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    var url = "https://localhost:7185/api/TotalOfsalesByRegion/GetTopSalesProduct";
+                    var httpResponse = await httpClient.GetAsync(url);
+
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        var content = await httpResponse.Content.ReadAsStringAsync();
+                        var salesReportList = JsonConvert.DeserializeObject<List<TheTopSalesProduct>>(content);
+                        return View(salesReportList);
+                    }
+                    else
+                    {
+
+                        var statusCode = httpResponse.StatusCode;
+
+                        return View("Error");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error");
+            }
+        }
+
 
 
 

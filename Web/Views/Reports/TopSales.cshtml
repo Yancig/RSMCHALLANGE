@@ -1,4 +1,4 @@
-﻿@model IEnumerable<vTotalofSalesByRegion>
+﻿@model IEnumerable<TheTopSalesProduct>
 
 @{
     ViewData["Title"] = "Export Report";
@@ -27,13 +27,8 @@
                 <th>
                     @Html.DisplayNameFor(model => model.TotalSales)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PercentageOfTotalSalesInRegion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PercentajeOfTotalCategorySalesInRegion)
-                </th>
-                
+
+
             </tr>
         </thead>
         <tbody>
@@ -49,12 +44,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.TotalSales)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PercentageOfTotalSalesInRegion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PercentajeOfTotalCategorySalesInRegion)
-                    </td>
+
 
                 </tr>
             }
