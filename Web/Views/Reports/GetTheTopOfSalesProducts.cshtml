@@ -1,0 +1,102 @@
+﻿@model IEnumerable<vTotalofSalesByRegion>
+
+@{
+    ViewData["Title"] = "Export Report";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*    <title>Exportar tabla a PDF</title> *@
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.1/css/buttons.dataTables.min.css">
+</head>
+<body>
+
+    <table id="example" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalSales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PercentageOfTotalSalesInRegion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PercentajeOfTotalCategorySalesInRegion)
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Product)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.TotalSales)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.PercentageOfTotalSalesInRegion)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.PercentajeOfTotalCategorySalesInRegion)
+                    </th>
+
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+    <script>
+        new DataTable('#example', {
+            layout: {
+                topStart: {
+                    buttons: [
+                        {
+                            extend: 'pdfHtml5',
+                            orientation: 'landscape',
+                            pageSize: 'LEGAL',
+                            title: 'Reporte de ventas',
+                            filename: 'Reporte_de_ventas'
+                        },
+                        {
+                            extend: 'csv',
+                            filename: 'Reporte_de_ventas'
+                        }
+                    ]
+                }
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>

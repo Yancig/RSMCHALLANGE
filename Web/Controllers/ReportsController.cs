@@ -46,13 +46,13 @@ namespace Web.Controllers
             }
 
         }
-        public async Task<IActionResult> TotalofSalesByRegion()
+        public async Task<IActionResult> GetTheTopOfSalesProducts()
             {
                 try
                 {
                     using (var httpClient = new HttpClient())
                     {
-                        var url = "https://localhost:44306/api/SalesReport";
+                        var url = "https://localhost:7185/api/TotalOfsalesByRegion/SalesByRegion";
                         var httpResponse = await httpClient.GetAsync(url);
 
                         if (httpResponse.IsSuccessStatusCode)
